@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style1.css">   
+    <title>health report from</title>
+</head>
+<body>
+    <nav>
+        <label class="Logo" ><img src="amar.png">
+        </label>
+        <ul>
+            <li><a class="active" href="#">Home</a></li>
+            <li><a href="#">Contect</a></li>
+            <li><a href="#">Information</a></li>
+            <li><a href="#">Guide</a></li>
+        </ul>
+    </nav>
+    <div class="heading">
+        <h1>Health Report</h1>
+    </div>
+    <div class="form-container">
+        <h2>Health Report Form</h2>
+        <form id="healthReportForm" action="insert.php" method="POST" enctype="multipart/form-data">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" required>
+
+            <label for="weight">Weight:</label>
+            <input type="text" id="weight" name="weight" required>
+
+            <label for="email">Email ID:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="healthReport">Upload Health Report:</label>
+            <input type="file" id="healthReport" name="healthReport" required accept="application/pdf/jpg">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    <footer>
+        <div class="amar">
+            <a href="#">home</a>
+            <a href="#">home</a>
+            <a href="#">home</a>
+            <a href="#">home</a> 
+        </div>
+    </footer>
+    <script>
+          // JavaScript code to handle form submission
+    document.getElementById("healthReportForm").addEventListener("submit", function(event) {
+      event.preventDefault(); // Prevent form from submitting normally
+
+      // Collect form data
+      var formData = new FormData(this);
+
+      // Send form data to the server
+      var xhr = new XMLHttpRequest();
+      xhr.open("POST", "insert.php", true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          alert("Form submitted successfully!");
+        } else {
+          alert("Form submission failed. Please try again.");
+        }
+      };
+      xhr.send(formData);
+    });
+
+    </script>
+</body>
+
+</html>
+</body>
+</html>
